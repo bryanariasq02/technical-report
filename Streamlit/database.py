@@ -49,6 +49,7 @@ st.subheader('Opción 1:')
 st.image(image, caption='Tamaño de la base de datos')
 
 st.subheader('Tiempos de ejecución')
+st.metric(label="Número de documentos totales:", value=suma_colecciones, delta='100%')
 row1_3, row1_4 = st.columns((2, 3))
 
 with row1_3:
@@ -56,13 +57,15 @@ with row1_3:
     st.metric(label="Categorías:", value="50")
     st.metric(label="Promedio tiempo subida de archivos por categoría:", value=promedio_subida_categorias, delta='Minutos')
     st.metric(label="Tiempo total 50 categorías GrupLAC:", value=tiempo_general_GrupLAC, delta='Horas')
+    st.metric(label="Cantidad documentos totales:", value=cant_colecciones_GrupLAC, delta=porcentaje_GrupLAC)
     
 with row1_4:
     st.subheader('Tiempo colección SiB:')
     st.metric(label="Categorías:", value="1")
-    st.metric(label="Tiempo ejecución función SiB:", value = tiempo_SiB_general, delta='Segundos')
+    #st.metric(label="Tiempo ejecución función SiB:", value = tiempo_SiB_general, delta='Segundos')
     st.metric(label="Tiempo subida de archivos SiB:", value = tiempo_SiB_subida, delta='Minutos')
     st.metric(label="Total tiempo categoría SiB:", value = total_tiempo_SiB, delta='Minutos') 
+    st.metric(label="Cantidad documentos totales:", value=cant_colecciones_SiB, delta=porcentaje_SiB)
     
 st.subheader('Tiempo total colecciones GrupLAC y SiB:')
 st.metric(label="", value = tiempo_total, delta='Horas')

@@ -1,5 +1,7 @@
 import numpy as np
 import pandas as pd
+import pymongo
+import getpass
 
 ## Datos GrupLAC en minutos
 promedio_subida_categorias = [13.157594680786133, 12.910658597946167, 0.0, 817.3705363273621, 314.45541429519653, 13.717514276504517, 114.88666796684265, 193.2364821434021, 0.005999326705932617, 1.6476120948791504, 109.89204525947571, 47.88673281669617, 24.488362789154053, 13.459438800811768, 44.288713693618774, 974.2309105396271, 0.03399515151977539, 79.74865531921387, 38.82858490943909, 48.720768213272095, 0.014996051788330078, 167.65852856636047, 126.25231337547302, 8.462912559509277, 27.271198272705078, 226.56910276412964, 710.8908910751343, 114.65120697021484, 13.961891174316406, 5.324206590652466, 3.877617597579956, 3.2043204307556152, 12.748164892196655, 62.41169285774231, 139.8106565475464, 34.722922563552856, 26.60270595550537, 7.981299638748169, 127.56432890892029, 1.3043546676635742, 9.776548147201538, 12.863681554794312, 661.7030076980591, 26.463616609573364, 1.7622954845428467, 15.803544998168945, 1.551013708114624, 17.545536041259766, 1633.6579902172089, 3.284865379333496]
@@ -24,3 +26,26 @@ total_tiempo_SiB = np.around(total_tiempo_SiB,2)
 ## Tiempo general en horas
 tiempo_total = 7209.841993093491/3600
 tiempo_total = np.around(tiempo_total, 4)
+
+## Azure
+uri = "mongodb://3bios:0CRbFr8yxrgXWZpwPXXZ1qHIN5ZmHwBpksSJRRy28rCZNGrQKEedukLkBbLPm0y2PKtZbdrZmXTY41X6Wyzo6Q==@3bios.mongo.cosmos.azure.com:10255/?ssl=true&retrywrites=false&replicaSet=globaldb&maxIdleTimeMS=120000&appName=@3bios@"
+client = pymongo.MongoClient(uri)
+#db_list = client.list_database_names()
+#name_DB = '3Bios'
+#db = client[name_DB]
+## GrupLAC
+#cant_colecciones_GrupLAC = db.GrupLAC.count_documents({})
+cant_colecciones_GrupLAC = 404547
+## SiB
+#cant_colecciones_SiB = db.SiB.count_documents({})
+cant_colecciones_SiB = 2054
+client.close()
+#Suma colecciones
+suma_colecciones = cant_colecciones_GrupLAC + cant_colecciones_SiB
+porcentaje_GrupLAC = (404547*100)/406601
+porcentaje_GrupLAC = np.around(porcentaje_GrupLAC, 1)
+porcentaje_GrupLAC = (str(porcentaje_GrupLAC) + "%")
+porcentaje_SiB = (2054*100)/406601
+porcentaje_SiB = np.around(porcentaje_SiB, 1)
+porcentaje_SiB = (str(porcentaje_SiB) + "%")
+
