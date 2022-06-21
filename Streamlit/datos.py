@@ -1,6 +1,6 @@
 import numpy as np
 import pandas as pd
-import pymongo
+#import pymongo
 import getpass
 
 ## Datos GrupLAC en minutos
@@ -28,8 +28,8 @@ tiempo_total = 7209.841993093491/3600
 tiempo_total = np.around(tiempo_total, 4)
 
 ## Azure
-uri = "mongodb://3bios:0CRbFr8yxrgXWZpwPXXZ1qHIN5ZmHwBpksSJRRy28rCZNGrQKEedukLkBbLPm0y2PKtZbdrZmXTY41X6Wyzo6Q==@3bios.mongo.cosmos.azure.com:10255/?ssl=true&retrywrites=false&replicaSet=globaldb&maxIdleTimeMS=120000&appName=@3bios@"
-client = pymongo.MongoClient(uri)
+# uri = "mongodb://3bios:0CRbFr8yxrgXWZpwPXXZ1qHIN5ZmHwBpksSJRRy28rCZNGrQKEedukLkBbLPm0y2PKtZbdrZmXTY41X6Wyzo6Q==@3bios.mongo.cosmos.azure.com:10255/?ssl=true&retrywrites=false&replicaSet=globaldb&maxIdleTimeMS=120000&appName=@3bios@"
+# client = pymongo.MongoClient(uri)
 #db_list = client.list_database_names()
 #name_DB = '3Bios'
 #db = client[name_DB]
@@ -39,7 +39,7 @@ cant_colecciones_GrupLAC = 404547
 ## SiB
 #cant_colecciones_SiB = db.SiB.count_documents({})
 cant_colecciones_SiB = 2054
-client.close()
+#client.close()
 #Suma colecciones
 suma_colecciones = cant_colecciones_GrupLAC + cant_colecciones_SiB
 porcentaje_GrupLAC = (404547*100)/406601

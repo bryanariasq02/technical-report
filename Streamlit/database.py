@@ -49,7 +49,7 @@ st.subheader('Opción 1:')
 st.image(image, caption='Tamaño de la base de datos')
 
 st.subheader('Tiempos de ejecución')
-st.metric(label="Número de documentos totales:", value=suma_colecciones, delta='100%')
+st.metric(label="Número de documentos totales:", value=suma_colecciones, delta='100%', delta_color='off')
 row1_3, row1_4 = st.columns((2, 3))
 
 with row1_3:
@@ -69,3 +69,21 @@ with row1_4:
     
 st.subheader('Tiempo total colecciones GrupLAC y SiB:')
 st.metric(label="", value = tiempo_total, delta='Horas')
+
+st.header('Consultas')
+
+st.code('''query = {'categoria_gruplac':'articulo'}
+timequery1 = db.GrupLAC.find(query).explain()['stages']
+GrupLAC.create_index([("categoria_gruplac",1)])
+timequery2 = db.GrupLAC.find(query).explain()['stages']''', language="python")
+
+st.subheader('Tiempo ejecución consultas GrupLAC por categoria Artículos')
+row1_3, row1_4 = st.columns((2, 3))
+with row1_3:
+    st.subheader('tiempoquery1')
+    st.metric(label="Consulta por Artículos:", value="27 Segundos")
+    
+    
+with row1_4:
+    st.subheader('tiempoquery2')
+    st.metric(label="Consulta por Artículos:", value="20 Segundos", delta="-7")
