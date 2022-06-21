@@ -9,7 +9,7 @@
 import streamlit as st
 from PIL import Image
 from datos import *
-image = Image.open(r'C:\Users\bryan\Desktop\3BIO\technical-report\Streamlit\metrics.png')
+#image = Image.open(r'C:\Users\bryan\Desktop\3BIO\technical-report\Streamlit\metrics.png')
 # import ast 
 
 # Referencias
@@ -46,7 +46,7 @@ with row1_2:
      st.markdown("SiB")
 
 st.subheader('Opción 1:')
-st.image(image, caption='Tamaño de la base de datos')
+st.image("https://raw.githubusercontent.com/bryanariasq02/technical-report/Database/Streamlit/metrics.png", caption='Tamaño de la base de datos')
 
 st.subheader('Tiempos de ejecución')
 st.metric(label="Número de documentos totales:", value=suma_colecciones, delta='100%', delta_color='off')
