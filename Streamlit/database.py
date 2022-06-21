@@ -9,7 +9,7 @@
 import streamlit as st
 from PIL import Image
 from datos import *
-image = Image.open('metrics.png')
+image = Image.open('./metrics.png')
 # import ast 
 
 # Referencias
