@@ -54,7 +54,6 @@ row1_3, row1_4 = st.columns((2, 3))
 with row1_3:
     st.subheader('Tiempo colecciones GrupLAC:')
     st.metric(label="Categorías:", value="50")
-    st.metric(label="Promedio tiempo lectura, limpieza y subida por categoría:", value=promedio_categoria, delta='Minutos')
     st.metric(label="Promedio tiempo subida de archivos por categoría:", value=promedio_subida_categorias, delta='Minutos')
     st.metric(label="Tiempo total 50 categorías GrupLAC:", value=tiempo_general_GrupLAC, delta='Horas')
     
