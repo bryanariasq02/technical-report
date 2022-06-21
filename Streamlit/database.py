@@ -52,18 +52,18 @@ st.subheader('Tiempos de ejecución')
 row1_3, row1_4 = st.columns((2, 3))
 
 with row1_3:
-    st.subheader('Tiempo categorias GroupLAC en minutos:')
+    st.subheader('Tiempo colecciones GrupLAC:')
     st.metric(label="Categorías:", value="50")
-    st.metric(label="Promedio tiempo lectura, limpieza y subida por categoría:", value=promedio_categoria)
-    st.metric(label="Suma tiempo subida de archivos por categoría:", value=suma_subida_categorias)
-    st.metric(label="Tiempo total 50 categorías GrupLAC:", value=tiempo_general_GrupLAC)
+    st.metric(label="Promedio tiempo lectura, limpieza y subida por categoría:", value=promedio_categoria, delta='Minutos')
+    st.metric(label="Promedio tiempo subida de archivos por categoría:", value=promedio_subida_categorias, delta='Minutos')
+    st.metric(label="Tiempo total 50 categorías GrupLAC:", value=tiempo_general_GrupLAC, delta='Horas')
     
 with row1_4:
-    st.subheader('Tiempo categorias SiB en segundos:')
+    st.subheader('Tiempo colección SiB:')
     st.metric(label="Categorías:", value="1")
-    st.metric(label="Tiempo ejecución función SiB:", value = tiempo_SiB_general)
-    st.metric(label="Tiempo subida de archivos SiB:", value = tiempo_SiB_subida)
-    st.metric(label="Total tiempo categoría SiB:", value = total_tiempo_SiB) 
+    st.metric(label="Tiempo ejecución función SiB:", value = tiempo_SiB_general, delta='Segundos')
+    st.metric(label="Tiempo subida de archivos SiB:", value = tiempo_SiB_subida, delta='Minutos')
+    st.metric(label="Total tiempo categoría SiB:", value = total_tiempo_SiB, delta='Minutos') 
     
-st.subheader('Tiempo total 51 categorías en horas:')
-st.metric(label="", value = tiempo_total)
+st.subheader('Tiempo total colecciones GrupLAC y SiB:')
+st.metric(label="", value = tiempo_total, delta='Horas')
